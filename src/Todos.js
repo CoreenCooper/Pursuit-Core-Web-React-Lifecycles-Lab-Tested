@@ -13,7 +13,7 @@ class Todos extends Component {
     this.setState((prevState) => ({
        todos: [...prevState.todos, userInput]
     }))
-    toast(`New todo added: ${userInput} `);
+    toast.success(`New todo added: ${userInput} `);
   };
 
   handleChange = (e) => {
@@ -24,7 +24,7 @@ class Todos extends Component {
     const { userInput } = this.state;
     const ul = document.getElementById("todos");
     ul.removeChild(e.currentTarget.parentElement);
-    toast(`Todo deleted: ${userInput} `);
+    toast.error(`Todo deleted: ${userInput} `);
   };
 
   componentDidMount() {
@@ -47,9 +47,11 @@ class Todos extends Component {
         </form>
         <ul id="todos">
           {todos.map((todo) => {
+            debuggerexit
             return (
               <li key={todo}>
                 {todo}
+                
                 <button onClick={this.handleClick}>x</button>
               </li>
             );
